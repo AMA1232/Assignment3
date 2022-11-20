@@ -8,6 +8,8 @@ int* array;
 int length = 1000000;
 int arr[1000000];
 int count;
+pthread_mutex_t mutex;
+
 int* arr_builder(){
     int *arr = (int*)malloc(sizeof(int) * length);
     for(int i = 0 ; i < length ; i++){
@@ -40,11 +42,13 @@ int count1s(){
     int i;
     array = arr_builder();
     count = 0 ; 
-    for(i = 0 ; i < length/64 ; i++){
+    pthread_mutex_lock(&mutex);
+    for(i = 0 ; i < length ; i++){
         if(array[i] == 1){
             count++;
         }
     }
+    pthread_mutex_unlock(&mutex);
     return count;
 } 
 int main(int argc , char* argv[]){
