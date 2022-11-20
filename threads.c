@@ -20,7 +20,22 @@ int* arr_builder(){
     }
     return arr;
 }
+//Specifications : 
+/*
+Requires : Nothing
+Effects : returns the number of 1s in the array.
+*/
+//Test Cases : 
+/*
+Case1 : arr = {1,2,2,3,4,1,1,2,4,2,1,4,1,5}
+        Return 5
 
+Case2 : arr = {0}
+        Return 0
+
+Case 3 : arr = NULL
+         Return Error
+*/
 int count1s(){
     int i;
     array = arr_builder();
